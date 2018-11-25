@@ -1,0 +1,44 @@
+swagger: "2.0"
+info:
+  description: "SSL game controller"
+  version: "1.0.0"
+  title: "ssl-game-controller"
+host: "localhost:8081"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /card:
+    post:
+      tags:
+        - "card"
+      summary: "Add a new card"
+      description: ""
+      operationId: "addCard"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Card"
+      responses:
+        200:
+          description: "OK"
+definitions:
+  Card:
+    type: "object"
+    properties:
+      kind:
+        type: "string"
+        enum:
+          - "yellow"
+          - "red"
+      forTeam:
+        type: "string"
+        enum:
+          - "yellow"
+          - "blue"
